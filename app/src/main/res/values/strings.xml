@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">Tummoc</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="backbutton">BackButton</string>
+    <string name="source">Source</string>
+    <string name="destination">Destination</string>
+    <string name="metro">Metro</string>
+    <string name="bus">Bus</string>
+    <string name="no_routes">No route is available to show!</string>
+    <string name="fastest_route">Fastest Route</string>
+</resources>
