@@ -1,18 +1,22 @@
 package com.prashant.tummoc.fragments.home
 
-import com.prashant.tummoc.R
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.ViewTreeObserver
+import android.widget.LinearLayout
+import android.widget.TextView
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.tabs.TabLayoutMediator
+import com.prashant.tummoc.R
 import com.prashant.tummoc.databinding.HomeBinding
 
 
-class HomeFragment :Fragment() {
+class HomeFragment : Fragment() {
     private var _binding: HomeBinding? = null
     private var binding = _binding
     private val viewModel by viewModels<HomeVM>()
@@ -45,5 +49,4 @@ class HomeFragment :Fragment() {
             }.attach()
         }
     }
-
 }

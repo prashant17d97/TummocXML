@@ -8,10 +8,10 @@ import androidx.databinding.DataBindingUtil
 import androidx.databinding.ViewDataBinding
 import androidx.recyclerview.widget.RecyclerView
 import com.prashant.tummoc.BR
+import com.prashant.tummoc.databinding.RoutesBinding
 import java.util.*
-import kotlin.collections.ArrayList
 
-class RecyclerAdapter<T :AbstractModel>(
+class RecyclerAdapter<T : AbstractModel>(
     @LayoutRes val layoutId: Int,
 ) : RecyclerView.Adapter<RecyclerAdapter.VH<T>>() {
 
@@ -49,7 +49,7 @@ class RecyclerAdapter<T :AbstractModel>(
         notifyItemMoved(fromPosition, toPosition)
     }
 
-    fun swapItem(fromPosition: Int, toPosition: Int, swapped : (Boolean)->Unit) {
+    fun swapItem(fromPosition: Int, toPosition: Int, swapped: (Boolean) -> Unit) {
 
         val temp = items[fromPosition]
         items[fromPosition] = items[toPosition]
@@ -112,12 +112,13 @@ class RecyclerAdapter<T :AbstractModel>(
         val model = items[position]
         model.viewHolder = holder
         model.length = itemCount
+        model.position = position
         onItemClick?.let { model.onItemClick = it }
         holder.bind(model)
     }
 
 
-    class VH<T :AbstractModel>(private val binding: ViewDataBinding) :
+    class VH<T : AbstractModel>(private val binding: ViewDataBinding) :
         RecyclerView.ViewHolder(binding.root) {
         fun bind(model: T) {
             binding.setVariable(BR.model, model)

@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="model"
+            type="com.prashant.tummoc.fragments.model.RoutesItem" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:contentDescription="@string/icons"
+            android:src="@{model.isWalk?@drawable/ic_walking:@drawable/ic_bus}" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginHorizontal="5dp"
+            android:gravity="center"
+            android:src="@drawable/ic_back"
+            android:text="@{model.infoText}"
+            android:textColor="@color/black"
+            tools:text="56" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:contentDescription="@string/icons"
+            android:src="@drawable/ic_forward_arrow"
+            android:visibility="@{model.lastIndex==model.position? View.GONE:View.VISIBLE}" />
+    </LinearLayout>
+</layout>

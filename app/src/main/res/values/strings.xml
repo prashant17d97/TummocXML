@@ -9,4 +9,10 @@
     <string name="bus">Bus</string>
     <string name="no_routes">No route is available to show!</string>
     <string name="fastest_route">Fastest Route</string>
+    <string name="report">Report</string>
+    <string name="icons">icons</string>
+    <string name="next_scheduled">NEXT SCHEDULED</string>
+    <string name="estimate">ESTIMATED PRICE</string>
+    <string name="travel_time">TRAVEL TIME</string>
+    <string name="distance">DISTANCE</string>
 </resources>

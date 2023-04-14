@@ -16,6 +16,7 @@ abstract class AbstractModel {
     @Transient
     var onItemClick: @RawValue RecyclerAdapter.OnItemClick? = null
 
-    val position: Int
-        get() = viewHolder?.adapterPosition ?: -1
+    var position: Int = 0
+    val lastIndex:Int
+    get() = length-1
 }
