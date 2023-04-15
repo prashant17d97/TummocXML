@@ -10,6 +10,8 @@ for the home screen and the other for the map view.
 
 **<a href="https://drive.google.com/file/d/1vr1-qUBlyrX0yqFnHx8CrjYIGniQ_vky/view?usp=share_link" target="_blank">APK</a>**
 
+**<a href="https://drive.google.com/drive/folders/1exhxvgnP7LIKFeBTW1W_zt1rR_Z5ETMQ?preview" target="_blank">Drive folder</a>**
+
 ## Features
 
 - Search for routes between two places
