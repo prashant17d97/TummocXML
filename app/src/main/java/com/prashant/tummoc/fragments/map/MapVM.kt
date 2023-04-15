@@ -71,6 +71,7 @@ class MapVM :ViewModel() {
 
     // RecyclerAdapter to show the trails.
     val trailAdapter = RecyclerAdapter<TrailsItem>(R.layout.trails)
+    val traits = ObservableField(0)
 
     // Observable field to check if the trails are visible or not.
     val isTraitsVisible = ObservableField(false)
@@ -113,6 +114,7 @@ class MapVM :ViewModel() {
             it.trailsItem?.let { it1 -> trailAdapter.addItems(it1) }
             fare += it.fare ?: 0.0
         }
+        traits.set(trailAdapter.itemCount)
 
         // Set the first trail and trail distance fields based on the first item in the `trailAdapter` list
         if (trailAdapter.getAllItems().isNotEmpty()) {
