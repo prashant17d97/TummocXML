@@ -6,9 +6,9 @@ MVVM) architecture and follows the Single Activity principle. The application ha
 for the home screen and the other for the map view.
 
 
-**<a href="https://drive.google.com/file/d/1UZw5QpE0nPBPHl7yHNgcETbpIUTNYF3x/preview" target="_blank" onclick="window.open(this.href,'_blank');return false;">See demo video</a>**
+**<a href="https://drive.google.com/file/d/1UZw5QpE0nPBPHl7yHNgcETbpIUTNYF3x/preview" target="_blank">See demo video</a>**
 
-**<a href="https://drive.google.com/file/d/1vr1-qUBlyrX0yqFnHx8CrjYIGniQ_vky/view?usp=share_link">APK</a>**
+**<a href="https://drive.google.com/file/d/1vr1-qUBlyrX0yqFnHx8CrjYIGniQ_vky/view?usp=share_link" target="_blank">APK</a>**
 
 ## Features
 
