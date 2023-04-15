@@ -17,7 +17,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
-        android:onClick="@{(view)-> model.onItemClick.onClick(view,model.viewHolder)}">
+        android:onClick="@{(view)-> model.onItemClick.onClick(view,model.viewHolder,model.position)}">
 
         <TextView
             android:id="@+id/tvReport"
@@ -133,12 +133,14 @@
             android:rotation="180"
             android:src="@drawable/ic_back"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/llBarIcon" />
+            app:layout_constraintTop_toBottomOf="@id/llBarIcon"
+            android:contentDescription="TODO" />
 
         <LinearLayout
             android:id="@+id/routeInfo"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:baselineAligned="true"
             android:layout_marginTop="10dp"
             android:orientation="horizontal"
             app:layout_constraintTop_toBottomOf="@id/rvInfo">

@@ -5,10 +5,10 @@ import android.graphics.Bitmap
 import android.graphics.Canvas
 import android.graphics.Color
 import androidx.core.content.ContextCompat
-import com.prashant.tummoc.methods.CommonMethod.convertStringInTime
 import com.google.android.gms.maps.model.BitmapDescriptor
 import com.google.android.gms.maps.model.BitmapDescriptorFactory
 import com.google.gson.Gson
+import com.prashant.tummoc.methods.CommonMethod.convertStringInTime
 import kotlin.random.Random
 import kotlin.time.Duration
 
@@ -54,7 +54,7 @@ object CommonMethod {
      *
      * @return A random color in 24-bit integer format
      */
-    fun randomColor(): Int {
+    private fun randomColor(): Int {
         val r: Float = Random.nextFloat()
         val g: Float = Random.nextFloat()
         val b: Float = Random.nextFloat()
@@ -70,7 +70,7 @@ object CommonMethod {
      * @param list: It require a list of color
      * @param index: It require a current where you want find the value
      */
-    fun getColorFromList(list: List<Int>, index: Int): Int {
+    private fun getColorFromList(list: List<Int>, index: Int): Int {
         return list.getOrElse(index) { randomColor() }
 
     }
@@ -78,7 +78,7 @@ object CommonMethod {
 
     /**[getIconPositions] function takes in a List of Floats and return the position for icons
      */
-    fun getIconPositions(values: List<Float>): List<Float> {
+    private fun getIconPositions(values: List<Float>): List<Float> {
         val sum = values.sum()
         val positions = mutableListOf(0f)
         values.forEach { value ->
@@ -95,13 +95,17 @@ object CommonMethod {
             .replaceFirst("(\\d+):(\\d{2}):(\\d{2}(?:\\.\\d+)?)".toRegex(), "PT$1H$2M$3S")
     ).toString()
 
-    /**[convertStringInTime] function is an extension function which returns the time in h, m, and sec.
+    /**[getFirstTwoWords] function is an extension function which returns the first word of any
+     * string if there are more than 1 word else it will revert single word or if there empty or
+     * null string then it will revert empty string("").
      */
-    fun String.firstWordOfString(): String {
-        val arr = this.split(" ".toRegex(), limit = 2).toTypedArray()
-
-        return arr[0] //the
-
+    fun String.getFirstTwoWords(): String {
+        val words = this.trim().split(" ")
+        return when (words.size) {
+            0 -> ""
+            1 -> words[0]
+            else -> "${words[0]} ${words[1]}"
+        }
     }
 
 

@@ -2,6 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
 
+    <uses-permission android:name="android.permission.INTERNET" />
     <application
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
@@ -22,7 +23,7 @@
         </activity>
         <meta-data
             android:name="com.google.android.geo.API_KEY"
-            android:value="AIzaSyDuywGBL7D_xIBK048PN8Ws_0IF_3W8SPA" />
+            android:value="AIzaSyAoAq6l4gMhyS-4TgkaacKW59JgJm6aFDQ" />
     </application>
 
 </manifest>

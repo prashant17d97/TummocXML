@@ -1,18 +1,442 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
 
+        <import type="android.view.View"/>
+        <variable
+            name="viewModel"
+            type="com.prashant.tummoc.fragments.map.MapVM" />
     </data>
+
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
-        <fragment
-            android:id="@+id/map_fragment"
+
+        <androidx.fragment.app.FragmentContainerView
+            android:id="@+id/mapFragment"
             android:name="com.google.android.gms.maps.SupportMapFragment"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"/>
+            android:layout_height="400dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:layout="@layout/routes_card" />
+
+        <ImageView
+            android:id="@+id/ivBack"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:contentDescription="@string/backbutton"
+            android:onClick="@{viewModel::onClick}"
+            android:padding="10dp"
+            android:src="@drawable/ic_back"
+            app:layout_constraintStart_toStartOf="@id/mapFragment"
+            app:layout_constraintTop_toTopOf="@id/mapFragment" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btnReport"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:layout_margin="10dp"
+            android:background="@drawable/button_style"
+            android:drawableStart="@drawable/ic_report"
+            android:drawablePadding="5dp"
+            android:drawableTint="@color/white"
+            android:onClick="@{viewModel::onClick}"
+            android:paddingHorizontal="10dp"
+            android:text="@string/report"
+            android:textAllCaps="false"
+            android:textColor="@color/white"
+            app:layout_constraintEnd_toEndOf="@id/mapFragment"
+            app:layout_constraintTop_toTopOf="@id/mapFragment" />
+
+        <androidx.core.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/mapFragment"
+            tools:layout_height="300dp">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <ImageView
+                    android:id="@+id/ivSourceCircle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/ic_circle"
+                    app:layout_constraintBottom_toBottomOf="@+id/sourceCard"
+                    app:layout_constraintEnd_toStartOf="@id/guideline"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="@id/sourceCard" />
+
+                <View
+                    android:layout_width="1dp"
+                    android:layout_height="0dp"
+                    android:layout_marginTop="20dp"
+                    android:background="@color/black"
+                    app:layout_constraintBottom_toTopOf="@id/ivTransportCircle"
+                    app:layout_constraintEnd_toStartOf="@id/guideline"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="@id/ivSourceCircle" />
+
+                <ImageView
+                    android:id="@+id/ivTransportCircle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/ic_bus"
+                    app:layout_constraintEnd_toStartOf="@id/guideline"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="@id/transportCard" />
+
+                <View
+                    android:layout_width="1dp"
+                    android:layout_height="0dp"
+                    android:layout_margin="20dp"
+                    android:background="@color/black"
+                    app:layout_constraintBottom_toBottomOf="@id/ivTransCircle"
+                    app:layout_constraintEnd_toStartOf="@id/guideline"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="@id/ivTransportCircle" />
+
+                <ImageView
+                    android:id="@+id/ivTransCircle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/ic_bus"
+                    app:layout_constraintBottom_toBottomOf="@id/transportCard"
+                    app:layout_constraintEnd_toStartOf="@id/guideline"
+                    app:layout_constraintStart_toStartOf="parent" />
+
+                <View
+                    android:layout_width="1dp"
+                    android:layout_height="0dp"
+                    android:background="@color/black"
+                    app:layout_constraintBottom_toTopOf="@id/ivDestinationCircle"
+                    app:layout_constraintEnd_toStartOf="@id/guideline"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/ivTransCircle" />
+
+                <ImageView
+                    android:id="@+id/ivDestinationCircle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/ic_circle"
+                    app:layout_constraintBottom_toBottomOf="@id/destinationCard"
+                    app:layout_constraintEnd_toStartOf="@id/guideline"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="@id/destinationCard"
+                    app:tint="#2A54BF" />
+
+                <androidx.constraintlayout.widget.Guideline
+                    android:id="@+id/guideline"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+                    app:layout_constraintGuide_percent="0.1" />
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/sourceCard"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    app:cardCornerRadius="8dp"
+                    app:cardElevation="4dp"
+                    app:cardUseCompatPadding="true"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@id/guideline"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:padding="10dp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent">
+
+                        <TextView
+                            android:id="@+id/tvSource"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/source"
+                            android:textColor="@color/black"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                        <TextView
+                            android:id="@+id/tvSourceValue"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@{viewModel.source.sourceTitle}"
+                            android:textColor="@color/black"
+                            android:textSize="14sp"
+                            android:textStyle="bold"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@id/tvSource"
+                            tools:text="Your Location" />
+
+                        <ImageView
+                            android:id="@+id/ivLocate"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="10dp"
+                            android:onClick="@{viewModel::onClick}"
+                            android:rotation="35"
+                            android:src="@drawable/ic_nav"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                        <ImageView
+                            android:id="@+id/ivSource"
+                            android:layout_width="wrap_content"
+                            android:layout_height="24dp"
+                            android:onClick="@{viewModel::onClick}"
+                            android:paddingTop="5dp"
+                            android:src="@drawable/ic_walking"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@id/tvSourceValue" />
+
+                        <TextView
+                            android:id="@+id/tvTime"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:drawablePadding="5dp"
+                            android:paddingHorizontal="5dp"
+                            android:text="@{viewModel.duration}"
+                            android:textColor="#2A54BF"
+                            app:drawableEndCompat="@drawable/ic_forward_arrow"
+                            app:drawableStartCompat="@drawable/ic_forward_arrow"
+                            app:layout_constraintBottom_toBottomOf="@+id/ivSource"
+                            app:layout_constraintStart_toEndOf="@id/ivSource"
+                            app:layout_constraintTop_toTopOf="@id/ivSource"
+                            tools:text="6s" />
+
+                        <TextView
+                            android:id="@+id/tvDistance"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:paddingHorizontal="5dp"
+                            android:text="@{viewModel.distance}"
+                            android:textColor="@color/black"
+                            app:layout_constraintBottom_toBottomOf="@+id/ivSource"
+                            app:layout_constraintStart_toEndOf="@id/tvTime"
+                            app:layout_constraintTop_toTopOf="@id/ivSource"
+                            tools:text="48 KMS" />
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+                </androidx.cardview.widget.CardView>
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/transportCard"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    app:cardCornerRadius="8dp"
+                    app:cardElevation="4dp"
+                    app:cardUseCompatPadding="true"
+                    app:layout_constraintBottom_toTopOf="@id/destinationCard"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@id/guideline"
+                    app:layout_constraintTop_toBottomOf="@id/sourceCard">
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:padding="10dp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent">
+
+                        <TextView
+                            android:id="@+id/tvTransportSource"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/getIn"
+                            android:textColor="@color/black"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                        <TextView
+                            android:id="@+id/tvTrails"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:onClick="@{viewModel::onClick}"
+                            android:paddingHorizontal="10dp"
+                            android:text="@string/getIn"
+                            android:textColor="#FF5722"
+                            app:layout_constraintBottom_toBottomOf="@id/ivTrailIcon"
+                            app:layout_constraintEnd_toStartOf="@id/ivTrailIcon"
+                            app:layout_constraintTop_toTopOf="parent"
+                            tools:text="25 more traits" />
+
+                        <ImageView
+                            android:id="@+id/ivTrailIcon"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            tools:src="@drawable/ic_arrow_down"
+                            android:src="@{!viewModel.isTraitsVisible? @drawable/ic_arrow_down : @drawable/ic_arrow_up}"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintBottom_toBottomOf="@id/tvTrails"/>
+
+                        <TextView
+                            android:id="@+id/tvTransportValue"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@{viewModel.transSource}"
+                            android:textColor="@color/black"
+                            android:textSize="14sp"
+                            android:textStyle="bold"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@id/tvTransportSource"
+                            tools:text="Your Location" />
+
+
+                        <androidx.constraintlayout.widget.ConstraintLayout
+                            android:id="@+id/clFirstTrail"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="5dp"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@id/tvTransportValue">
+
+                            <ImageView
+                                android:id="@+id/ivBus"
+                                android:layout_width="20dp"
+                                android:layout_height="20dp"
+                                android:src="@drawable/ic_bus"
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toTopOf="parent" />
+
+                            <TextView
+                                android:id="@+id/tvFirstTrails"
+                                android:layout_width="wrap_content"
+                                android:layout_height="match_parent"
+                                android:drawablePadding="10dp"
+                                android:paddingHorizontal="5dp"
+                                android:text="@{viewModel.firstTrail}"
+                                android:textColor="#FF5722"
+                                app:drawableEndCompat="@drawable/ic_forward_arrow"
+                                app:drawableStartCompat="@drawable/ic_forward_arrow"
+                                app:layout_constraintBottom_toBottomOf="@+id/ivBus"
+                                app:layout_constraintStart_toEndOf="@id/ivBus"
+                                app:layout_constraintTop_toTopOf="@+id/ivBus"
+                                tools:text="HDB" />
+
+                            <TextView
+                                android:id="@+id/tvTrailDistance"
+                                android:layout_width="wrap_content"
+                                android:layout_height="match_parent"
+                                android:text="@{viewModel.trailDistance}"
+                                android:textColor="@color/black"
+                                app:layout_constraintBottom_toBottomOf="@id/tvFirstTrails"
+                                app:layout_constraintStart_toEndOf="@id/tvFirstTrails"
+                                app:layout_constraintTop_toTopOf="@id/tvFirstTrails"
+                                tools:text="25 KM" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="match_parent"
+                                android:layout_marginStart="10dp"
+                                android:text="@{viewModel.amount}"
+                                android:textColor="@color/black"
+                                app:layout_constraintBottom_toBottomOf="@id/tvTrailDistance"
+                                app:layout_constraintStart_toEndOf="@id/tvTrailDistance"
+                                app:layout_constraintTop_toTopOf="@id/tvTrailDistance"
+                                tools:text="Rs/- 25" />
+
+                        </androidx.constraintlayout.widget.ConstraintLayout>
+
+                        <androidx.recyclerview.widget.RecyclerView
+                            android:id="@+id/rvTrails"
+                            setRecyclerAdapter="@{viewModel.trailAdapter}"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="10dp"
+                            android:visibility="@{viewModel.isTraitsVisible?View.VISIBLE:View.GONE}"
+                            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                            app:layout_constraintBottom_toTopOf="@id/tvTransDestination"
+                            app:layout_constraintTop_toBottomOf="@id/clFirstTrail"
+                            tools:itemCount="1"
+                            tools:listitem="@layout/trails" />
+
+                        <TextView
+                            android:id="@+id/tvTransDestination"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/getDown"
+                            android:textColor="@color/black"
+                            app:layout_constraintBottom_toTopOf="@id/tvTransportDestination"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@id/rvTrails" />
+
+                        <TextView
+                            android:id="@+id/tvTransportDestination"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@{viewModel.tranDestination}"
+                            android:textColor="@color/black"
+                            android:textSize="14sp"
+                            android:textStyle="bold"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            tools:text="Your Location" />
+
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+                </androidx.cardview.widget.CardView>
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/destinationCard"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    app:cardCornerRadius="8dp"
+                    app:cardElevation="4dp"
+                    app:cardUseCompatPadding="true"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@id/guideline">
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:padding="10dp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent">
+
+                        <TextView
+                            android:id="@+id/tvDestination"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/destination"
+                            android:textColor="@color/black"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                        <TextView
+                            android:id="@+id/tvDestinationValue"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@{viewModel.destination.destinationTitle}"
+                            android:textColor="@color/black"
+                            android:textSize="14sp"
+                            android:textStyle="bold"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@id/tvDestination"
+                            tools:text="Your Location" />
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+                </androidx.cardview.widget.CardView>
+
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </androidx.core.widget.NestedScrollView>
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

@@ -18,6 +18,7 @@ data class ResponseItem(
     @field:SerializedName("routes")
     val routes: List<RoutesItem>? = null,
 
+
     @field:SerializedName("totalFare")
     val totalFare: Double? = null,
 

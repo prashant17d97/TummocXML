@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="model"
+            type="com.prashant.tummoc.fragments.model.TrailsItem" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/clTrail"
+        android:layout_width="wrap_content"
+        android:onClick="@{(view)-> model.onItemClick.onClick(view,model.viewHolder,model.position)}"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:id="@+id/ivBus"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:src="@drawable/ic_bus"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/tvTrails"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:drawablePadding="10dp"
+            android:paddingHorizontal="5dp"
+            android:text="@{model.trailName}"
+            android:textColor="#FF5722"
+            app:drawableEndCompat="@drawable/ic_forward_arrow"
+            app:drawableStartCompat="@drawable/ic_forward_arrow"
+            app:layout_constraintBottom_toBottomOf="@+id/ivBus"
+            app:layout_constraintStart_toEndOf="@id/ivBus"
+            app:layout_constraintTop_toTopOf="@+id/ivBus"
+            tools:text="HDB" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:text="@{model.getDistance}"
+            android:textColor="@color/black"
+            app:layout_constraintBottom_toBottomOf="@+id/tvTrails"
+            app:layout_constraintStart_toEndOf="@id/tvTrails"
+            app:layout_constraintTop_toTopOf="@+id/tvTrails"
+            tools:text="25 KM" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

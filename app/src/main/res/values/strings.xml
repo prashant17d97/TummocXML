@@ -15,4 +15,6 @@
     <string name="estimate">ESTIMATED PRICE</string>
     <string name="travel_time">TRAVEL TIME</string>
     <string name="distance">DISTANCE</string>
+    <string name="getIn">Get in Station</string>
+    <string name="getDown">Get down station</string>
 </resources>

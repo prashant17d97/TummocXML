@@ -5,9 +5,6 @@ import kotlinx.parcelize.RawValue
 
 abstract class AbstractModel {
     @Transient
-    var vpPosition: Int = -1
-
-    @Transient
     var length: Int = 0
 
     @Transient

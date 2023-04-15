@@ -17,5 +17,9 @@
     <fragment
         android:id="@+id/mapFragment"
         android:name="com.prashant.tummoc.fragments.map.MapFragment"
-        android:label="MapFragment" />
+        android:label="MapFragment" >
+        <argument
+            android:name="routes"
+            app:argType="com.prashant.tummoc.fragments.model.ResponseItem" />
+    </fragment>
 </navigation>
