@@ -25,7 +25,7 @@ it more manageable and easier to maintain.
 
 ## Screenshots
 
-<img src="https://user-images.githubusercontent.com/84988691/230418123-7e43f63e-cdb8-4f47-bcdd-8e2dc935c86f.png" width="250" height="450">
+<img src="https://user-images.githubusercontent.com/84988691/232247536-e9ce2735-4c3a-4fef-9d88-25dac9b1c90f.png" width="250" height="450">
 
 ## Home Screen
 The Home Screen shows two search fields for the source and destination, along with a tab to select
@@ -33,7 +33,7 @@ between metro and bus routes. Below the tab, there is a recycler view that displ
 between the source and destination.
 
 
-<img src="https://user-images.githubusercontent.com/84988691/230418101-6ad6e3d7-5eff-4ad2-8bdb-211b962cd45d.png" width="250" height="450">
+<img src="https://user-images.githubusercontent.com/84988691/232247598-82fec029-7eba-400b-b09a-637bb2a123fe.png" width="250" height="450">
 
 ## MapView 
 The Map View displays the selected route on a map. The top half of the screen shows the map, while
@@ -47,6 +47,7 @@ the bottom half displays the route.
 - Google Maps API
 - RecyclerView
 - Material Design
+
 
 ## Installation
 
