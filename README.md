@@ -5,6 +5,11 @@ between different places in a city. The application is designed using the Model-
 MVVM) architecture and follows the Single Activity principle. The application has two fragments, one
 for the home screen and the other for the map view.
 
+
+**<a href="https://drive.google.com/file/d/1UZw5QpE0nPBPHl7yHNgcETbpIUTNYF3x/preview" target="_blank" onclick="window.open(this.href,'_blank');return false;">See demo video</a>**
+
+**<a href="https://drive.google.com/file/d/1vr1-qUBlyrX0yqFnHx8CrjYIGniQ_vky/view?usp=share_link">APK</a>**
+
 ## Features
 
 - Search for routes between two places
@@ -39,11 +44,10 @@ between the source and destination.
 The Map View displays the selected route on a map. The top half of the screen shows the map, while
 the bottom half displays the route.
 
+
 ## Libraries and Tools Used
 
 - ViewModel
-- LiveData
-- Retrofit
 - Google Maps API
 - RecyclerView
 - Material Design
@@ -53,3 +57,5 @@ the bottom half displays the route.
 
 Clone the repository and open the project in Android Studio. Run the application on an emulator or a
 physical device.
+
+
