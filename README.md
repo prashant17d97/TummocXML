@@ -26,6 +26,7 @@ it more manageable and easier to maintain.
 ## Screenshots
 
 <img src="https://user-images.githubusercontent.com/84988691/230418123-7e43f63e-cdb8-4f47-bcdd-8e2dc935c86f.png" width="250" height="450">
+
 ## Home Screen
 The Home Screen shows two search fields for the source and destination, along with a tab to select
 between metro and bus routes. Below the tab, there is a recycler view that displays the routes
