@@ -23,7 +23,8 @@
             android:src="@drawable/ic_bus"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            android:contentDescription="@string/app_name" />
 
         <TextView
             android:id="@+id/tvTrails"
@@ -32,7 +33,8 @@
             android:drawablePadding="10dp"
             android:paddingHorizontal="5dp"
             android:text="@{model.trailName}"
-            android:textColor="#FF5722"
+            android:textColor="#FF6600"
+            android:background="#FFFFFF"
             app:drawableEndCompat="@drawable/ic_forward_arrow"
             app:drawableStartCompat="@drawable/ic_forward_arrow"
             app:layout_constraintBottom_toBottomOf="@+id/ivBus"

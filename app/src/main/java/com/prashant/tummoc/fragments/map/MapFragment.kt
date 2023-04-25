@@ -137,14 +137,13 @@ class MapFragment :Fragment() {
     }
 
     /** This private function takes a
-     * @param list of TrailsItem objects and returns a
-     * @return list of LatLng objects.
-     *
-     *It iterates over the list of TrailsItem objects and adds a new LatLng object to the
+     * @param list of TrailsItem objects. It iterates over the list of TrailsItem objects and adds a new LatLng object to the
      *list for each TrailsItem object, using the latitude and longitude values from the
      *TrailsItem object.
      *If a latitude or longitude value is null, it uses a default value of 0.0.
-     *The function the list of LatLng objects.*/
+     *The function the list of LatLng objects.
+     * @return list of LatLng objects.
+     */
     private fun latLng(list: List<TrailsItem>): List<LatLng> {
         val latLng = arrayListOf<LatLng>()
         list.forEach {

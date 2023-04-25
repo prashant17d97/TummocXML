@@ -31,7 +31,7 @@ class MapVM :ViewModel() {
     lateinit var routesItem: List<RoutesItem>
 
     // Destination of the trip.
-    lateinit var transPort: List<RoutesItem>
+    private lateinit var transPort: List<RoutesItem>
 
     // GoogleMap object.
     lateinit var googleMap: GoogleMap
